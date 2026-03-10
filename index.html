@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" class="no-scroll">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHETAN Kumar // Developer • Multimedia • Speaker</title>
+    
+    <link rel="icon" type="image/png" href="assets/favicon/favicon.svg">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body class="no-scroll"> 
+
+    <!-- =========================================
+         CUSTOM CURSOR ELEMENTS
+         (Position and hover states managed via JS)
+    ========================================== -->
+    <div class="custom-cursor-outer"></div>
+    <div class="custom-cursor-inner"></div>
+    
+    <!-- =========================================
+         INTRO / LOADING ANIMATION LAYER
+         (Displays the Snake text animation on load)
+    ========================================== -->
+    <div id="intro-layer">
+        <div id="grid-container"></div>
+    </div>
+
+    <!-- =========================================
+         MAIN CONTENT WRAPPER
+    ========================================== -->
+    <main id="main-content">
+        
+        <!-- --- FLOATING UI ELEMENTS --- -->
+        
+        <!-- Top Left Logo (Scrolls to top smoothly) -->
+        <div id="ck-logo-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">CK</div>
+
+        <!-- Top Right Navigation Menu (Hamburger + Dropdown) -->
+        <div id="nav-menu-container">
+            <div class="hamburger-icon">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+            <ul class="nav-dropdown">
+                <li class="nav-item"><a href="#about-track" onclick="scrollToSection(event, 'about-track')">About</a></li>
+                <li class="nav-item"><a href="#education-track" onclick="scrollToSection(event, 'education-track')">Education</a></li>
+                <li class="nav-item"><a href="#skills-track" onclick="scrollToSection(event, 'skills-track')">Skills</a></li>
+                <li class="nav-item"><a href="#gallery-track" onclick="scrollToSection(event, 'gallery-track')">Gallery</a></li>
+                <li class="nav-item"><a href="#creations-track" onclick="scrollToSection(event, 'creations-track')">Creations</a></li>
+                <li class="nav-item"><a href="#contact-track" onclick="scrollToSection(event, 'contact-track')">Contact</a></li>
+            </ul>
+        </div>
+
+
+        <!-- =========================================
+             1. HERO SECTION
+             (Features the fanning image deck & title)
+        ========================================== -->
+        <section class="hero-scroll-track">
+            <div class="sticky-viewport">
+                <div class="portfolio-container">
+                    
+                    <!-- Image Fan Deck -->
+                    <div class="images-wrapper">
+                        <!-- Terminal typing sequence text -->
+                        <div id="terminal-layer" class="center-text-layer"></div>
+                        <div id="scroll-prompt" class="center-text-layer">SCROLL DOWN</div>
+                        
+                        <!-- Left Wing Images -->
+                        <img src="assets/heading/l1.png" class="photo side-photo left-3">
+                        <img src="assets/heading/l2.png" class="photo side-photo left-2">
+                        <img src="assets/heading/l3.png" class="photo side-photo left-1">
+                        
+                        <!-- Right Wing Images -->
+                        <img src="assets/heading/r3.png" class="photo side-photo right-3">
+                        <img src="assets/heading/r2.png" class="photo side-photo right-2">
+                        <img src="assets/heading/r1.png" class="photo side-photo right-1">
+                        
+                        <!-- Center Hero Image -->
+                        <img src="assets/heading/cen.png" class="photo main-photo" id="hero-main-img">
+                    </div>
+                    
+                    <!-- Hero Text and Tagline -->
+                    <div class="text-wrapper" id="hero-text">
+                        <h1 class="name-title">CHETAN KUMAR</h1>
+                        <div class="tagline-row">
+                            <div class="tagline-line line-l"></div>
+                            <div class="tagline-content">
+                                <span>DEVELOPER</span><span class="tag-divider"> | </span>
+                                <span>MULTIMEDIA </span><span class="tag-divider"> | </span>
+                                <span>SPEAKER</span>
+                            </div>
+                            <div class="tagline-line line-r"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             2. ABOUT SECTION
+        ========================================== -->
+        <section id="about-track">
+            <div id="about-sticky">
+                <h2 id="about-title">ABOUT ME</h2>
+                <div id="about-layout">
+                    
+                    <!-- Text Box -->
+                    <div id="about-rect">
+                        <div id="about-text-content">
+                            <!-- Title with Resume Tooltip Link -->
+                            <div class="about-title-wrapper">
+                                <h3>WHO I AM</h3>
+                                <a href="assets/documents/Chetan_Kumar_Resume.pdf" target="_blank" class="resume-tooltip">VIEW RESUME &#8599;</a>
+                            </div>
+                            <p>
+                                I am a second-year Computer Science undergraduate at SSSIHL with a 
+                                strong interest in analytical thinking and creative expression.
+                            </p>
+                            <p>
+                                Whether I’m solving complex problems, working with data-driven concepts, 
+                                structuring databases, contributing to sustainability initiatives, or 
+                                crafting cinematic edits, I enjoy transforming ideas into clear, impactful 
+                                outcomes through logic, precision, and creativity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Circular Display Picture -->
+                    <div id="about-circle">
+                        <img src="assets/about_me/circle.png" alt="About Me">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             3. EDUCATION SECTION
+        ========================================== -->
+        <section id="education-track">
+            <div id="education-sticky">
+                <h2 id="education-title">EDUCATION</h2>
+                <div id="education-list">
+                    
+                    <!-- Item 1: University -->
+                    <div class="edu-divider"></div>
+                    <div class="edu-item">
+                        <div class="edu-logo-wrapper">
+                            <div class="edu-logo">
+                                <img src="assets/education/sssihl_logo_white.png" alt="College Logo">
+                            </div>
+                        </div>
+                        <div class="edu-details">
+                            <h3 class="edu-main-text type-target" data-text="Bachelor of Science (Hons.) in Computer Science"></h3>
+                            <p class="edu-sub-text type-target" data-text="Sri Sathya Sai Institute of Higher Learning"></p>
+                        </div>
+                        <div class="edu-stats">
+                            <h3 class="edu-score-text type-target-score" data-text="CGPA: 8.6"></h3>
+                            <p class="edu-year-text type-target-score" data-text="2024-Present"></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2: High School -->
+                    <div class="edu-divider"></div>
+                    <div class="edu-item">
+                        <div class="edu-logo-wrapper">
+                            <div class="edu-logo">
+                                <img src="assets/education/abm_logo.png" alt="School Logo">
+                            </div>
+                        </div>
+                        <div class="edu-details">
+                            <h3 class="edu-main-text type-target" data-text="Senior Secondary (Class XII) — PCM"></h3>
+                            <p class="edu-sub-text type-target" data-text="A.B.M Sr. Sec. School, Thakurdwara"></p>
+                        </div>
+                        <div class="edu-stats">
+                            <h3 class="edu-score-text type-target-score" data-text="SCORE: 90.4%"></h3>
+                            <p class="edu-year-text type-target-score" data-text="2024"></p>
+                        </div>
+                    </div>
+                    <div class="edu-divider"></div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             4. SKILLS SECTION
+             (Interactive 3D Carousel mapped via JS)
+        ========================================== -->
+        <section id="skills-track">
+            <div id="skills-sticky">
+                <h2 id="skills-title">MY SKILLS</h2>
+                
+                <div id="skills-carousel-container">
+                    <div id="skills-arc-line"></div>
+                    <!-- JS injects the skill nodes into this wrapper -->
+                    <div id="skills-cards-wrapper"></div>
+                </div>
+                
+                <!-- Displayed information of the currently active card -->
+                <div id="skill-info-display">
+                    <h3 id="skill-name">SKILL NAME</h3>
+                    <p id="skill-desc">Description...</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             5. GALLERY SECTION
+             (Horizontal spreading card layout)
+        ========================================== -->
+        <section id="gallery-track">
+            <div id="gallery-sticky">
+                <h2 id="gallery-title">MY GALLERY</h2>
+                
+                <div id="gallery-wrapper">
+                    <!-- Left Navigation Arrow -->
+                    <div class="nav-btn-container nav-left" onclick="moveGallery(-1)">
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+
+                    <!-- JS injects the gallery cards into this deck -->
+                    <div class="gallery-deck" id="gallery-deck"></div>
+
+                    <!-- Right Navigation Arrow -->
+                    <div class="nav-btn-container nav-right" onclick="moveGallery(1)">
+                        <div class="arrow">
+                            <div class="arrow-top"></div>
+                            <div class="arrow-bottom"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================================
+             6. CREATIONS SECTION
+             (Interactive video portfolio with flip cards)
+        ========================================== -->
+        <section id="creations-track">
+            <div id="creations-sticky">
+                <h2 id="creations-title">MY CREATIONS</h2>
+                
+                <div class="creations-layout">
+                    
+                    <!-- Left Side: Falling Card Stack -->
+                    <div class="creations-left">
+                        <div class="stack-wrapper" id="stack-wrapper">
+                            
+                            <!-- Background decorative cards -->
+                            <div class="stack-card back-card card-5"></div>
+                            <div class="stack-card back-card card-4"></div>
+                            <div class="stack-card back-card card-3"></div>
+                            <div class="stack-card back-card card-2"></div>
+                            <div class="stack-card back-card card-1"></div>
+                            
+                            <!-- Main Interactive Card -->
+                            <div class="stack-card main-card" id="main-creation-card">
+                                
+                                <!-- Vertical Navigation Controls -->
+                                <div class="card-top-bar">
+                                    <div class="nav-arrow" onclick="changeCreation(-1)">&#9650;</div> <!-- Up -->
+                                    <div class="card-counter" id="creation-counter">1 / 4</div>
+                                    <div class="nav-arrow" onclick="changeCreation(1)">&#9660;</div> <!-- Down -->
+                                </div>
+
+                                <!-- 3D Flip Area -->
+                                <div class="card-media-area">
+                                    <div class="media-flip-container">
+                                        <div class="media-flip-inner">
+                                            
+                                            <!-- Front: Thumbnail and Play Button -->
+                                            <div class="media-front">
+                                                <div class="media-placeholder" id="creation-img-placeholder">
+                                                    <div class="play-icon-overlay">
+                                                        <div class="play-triangle"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Back: Video Link Button -->
+                                            <div class="media-back">
+                                                <a href="#" target="_blank" id="creation-drive-link" class="drive-btn">
+                                                    OPEN LINK &#8599;
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Content & Toggles -->
+                    <div class="creations-right">
+                        
+                        <!-- Toggle 1: Shorts/Fast Frames -->
+                        <div class="toggle-fixed-top">
+                            <p class="creation-sub-text toggle-btn active" id="toggle-fast" onclick="switchCategory('shorts')">
+                                From Fast Frames
+                                <span class="gear-tooltip">REC // <span>Moto G85 Mobile</span></span>
+                            </p>
+                        </div>
+                        
+                        <!-- Middle Information Container -->
+                        <div class="creation-info-box-container">
+                            <div class="creation-info-box">
+                                <h3 id="creation-video-title">VIDEO TITLE</h3>
+                                <div id="creation-desc-container">
+                                    <p id="creation-video-desc">Video description goes here...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Toggle 2: Longs/Full Stories -->
+                        <div class="toggle-fixed-bottom">
+                            <p class="creation-sub-text toggle-btn" id="toggle-full" onclick="switchCategory('longs')">
+                                to Full Stories
+                                <span class="gear-tooltip">REC // <span>Canon EOS 200D II, Sony ILCE-7M3, Nikon D5200</span></span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             7. CONTACT ME SECTION
+             (Spreading cards with socials and form)
+        ========================================== -->
+        <section id="contact-track">
+            <div id="contact-sticky">
+                
+                <!-- Hover wrapper triggers the left/right card slide -->
+                <div class="contact-wrapper" id="contact-wrapper">
+                    
+                    <!-- Left Card: Social Media Grid -->
+                    <div class="contact-card contact-side contact-left">
+                        <div class="contact-inner-content">
+                            <h3 class="social-title">CONNECT</h3>
+                            <div class="social-icons-grid">
+                                
+                                <!-- Email / MailTo -->
+                                <div class="social-group">
+                                    <a href="mailto:kumarchetan98570@gmail.com" class="social-btn">
+                                        <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                    </a>
+                                    <span class="social-tooltip">Email</span>
+                                </div>
+
+                                <!-- LinkedIn -->
+                                <div class="social-group">
+                                    <a href="https://www.linkedin.com/in/chetan-kumar-1582b533b/" target="_blank" class="social-btn">
+                                        <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    </a>
+                                    <span class="social-tooltip">LinkedIn</span>
+                                </div>
+
+                                <!-- Instagram -->
+                                <div class="social-group">
+                                    <a href="https://www.instagram.com/chetan_kumar.37?igsh=dXRlYjVncnowdmlz" target="_blank" class="social-btn">
+                                        <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                                    </a>
+                                    <span class="social-tooltip">Instagram</span>
+                                </div>
+
+                                <!-- Facebook -->
+                                <div class="social-group">
+                                    <a href="https://www.facebook.com/61575994526119/" target="_blank" class="social-btn">
+                                        <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                                    </a>
+                                    <span class="social-tooltip">Facebook</span>
+                                </div>
+
+                                <!-- GitHub -->
+                                <div class="social-group">
+                                    <a href="https://github.com/Chetan-37" target="_blank" class="social-btn">
+                                        <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                    <span class="social-tooltip">GitHub</span>
+                                </div>
+                                
+                                <!-- YouTube (Inactive status styled via CSS and Tooltip) -->
+                                <div class="social-group">
+                                    <a href="https://youtube.com/@silenciofeelings2103?si=EqyK88REqW0_pB1G" target="_blank" class="social-btn">
+                                        <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                                    </a>
+                                    <span class="social-tooltip inactive-tooltip">YouTube <span>(Hiatus)</span></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Card: Contact Form -->
+                    <div class="contact-card contact-side contact-right">
+                        <div class="contact-inner-content">
+                            <!-- Powered by FormSubmit.co API -->
+                            <form action="https://formsubmit.co/YOUR_EMAIL_HERE@gmail.com" method="POST" class="contact-form">
+                                
+                                <!-- Animated Input: Email -->
+                                <div class="wave-group">
+                                    <input required type="email" name="email" class="input">
+                                    <span class="bar"></span>
+                                    <label class="label">
+                                        <span class="label-char" style="--index: 0">E</span>
+                                        <span class="label-char" style="--index: 1">m</span>
+                                        <span class="label-char" style="--index: 2">a</span>
+                                        <span class="label-char" style="--index: 3">i</span>
+                                        <span class="label-char" style="--index: 4">l</span>
+                                    </label>
+                                </div>
+
+                                <!-- Animated Input: Message -->
+                                <div class="wave-group">
+                                    <input required type="text" name="message" class="input">
+                                    <span class="bar"></span>
+                                    <label class="label">
+                                        <span class="label-char" style="--index: 0">M</span>
+                                        <span class="label-char" style="--index: 1">e</span>
+                                        <span class="label-char" style="--index: 2">s</span>
+                                        <span class="label-char" style="--index: 3">s</span>
+                                        <span class="label-char" style="--index: 4">a</span>
+                                        <span class="label-char" style="--index: 5">g</span>
+                                        <span class="label-char" style="--index: 6">e</span>
+                                    </label>
+                                </div>
+                                
+                                <!-- Form Configuration -->
+                                <input type="hidden" name="_captcha" value="false">
+
+                                <button type="submit" class="contact-submit-btn">SEND</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Center Card: Main Title Cover -->
+                    <div class="contact-card contact-center">
+                        <div class="center-content-wrapper">
+                            <h2 id="contact-type-target">CONTACT ME</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+       <!-- =========================================
+             8. GIANT THEMED FOOTER
+        ========================================== -->
+        <section id="footer-track">
+            <div id="footer-sticky">
+                <div class="footer-container">
+                    <h1 class="giant-footer-name" id="giant-name">CHETAN<span>.</span></h1>
+                    <div class="copyright-wrapper">
+                        <p class="copyright-text" id="copyright-text"><span class="prompt-arrow">></span> &copy; 2026 Code & Design by Chetan Kumar. Musical works belong to their respective owners.<span class="blinking-cursor">_</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             LIGHTBOX OVERLAY
+             (For full-screen Gallery viewing)
+        ========================================== -->
+        <div id="lightbox">
+            <img id="lightbox-img" src="" alt="Zoomed">
+            
+            <!-- Previous Arrow -->
+            <div class="lb-nav-btn lb-prev" onclick="lbNavigate(-1)">
+                 <div class="arrow" style="transform: translateX(-50%) translateY(-50%) rotate(180deg) scale(0.6);">
+                    <div class="arrow-top"></div>
+                    <div class="arrow-bottom"></div>
+                </div>
+            </div>
+            
+            <!-- Next Arrow -->
+            <div class="lb-nav-btn lb-next" onclick="lbNavigate(1)">
+                <div class="arrow" style="transform: translateX(-50%) translateY(-50%) scale(0.6);">
+                    <div class="arrow-top"></div>
+                    <div class="arrow-bottom"></div>
+                </div>
+            </div>
+            
+            <!-- Background close trigger -->
+            <div class="lb-close-area" onclick="closeLightbox()"></div>
+        </div>
+
+    </main>
+
+    <!-- Global Script -->
+    <script src="script.js"></script>
+</body>
+</html>
