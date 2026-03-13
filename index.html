@@ -418,6 +418,9 @@
                         <div class="contact-inner-content">
                             <!-- Powered by FormSubmit.co API -->
                             <form action="https://formsubmit.co/kumarchetan98570@gmail.com" method="POST" class="contact-form">
+
+                    <!-- Powered by Formspark -->
+                            <form action="https://submit-form.com/OAIhpm570" method="POST" class="contact-form">
                                 
                                 <!-- Animated Input: Email -->
                                 <div class="wave-group">
@@ -447,13 +450,14 @@
                                     </label>
                                 </div>
                                 
-                                <!-- Form Configuration -->
-                                <input type="hidden" name="_captcha" value="false">
+                                <!-- Formspark Anti-Spam Honeypot (Hidden from real users, traps bots) -->
+                                <input type="checkbox" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off">
+
+                                <!-- Optional: Redirect back to your site after sending (Replace # with your actual website URL later) -->
+                                <!-- <input type="hidden" name="_redirect" value="https://yourwebsite.com/#contact-track"> -->
 
                                 <button type="submit" class="contact-submit-btn">SEND</button>
                             </form>
-                        </div>
-                    </div>
 
                     <!-- Center Card: Main Title Cover -->
                     <div class="contact-card contact-center">
@@ -489,7 +493,7 @@
             
             <!-- Previous Arrow -->
             <div class="lb-nav-btn lb-prev" onclick="lbNavigate(-1)">
-                 <div class="arrow" style="transform: translateX(-50%) translateY(-50%) rotate(180deg) scale(0.6);">
+                <div class="arrow">
                     <div class="arrow-top"></div>
                     <div class="arrow-bottom"></div>
                 </div>
@@ -497,13 +501,13 @@
             
             <!-- Next Arrow -->
             <div class="lb-nav-btn lb-next" onclick="lbNavigate(1)">
-                <div class="arrow" style="transform: translateX(-50%) translateY(-50%) scale(0.6);">
+                <div class="arrow">
                     <div class="arrow-top"></div>
                     <div class="arrow-bottom"></div>
                 </div>
             </div>
-            
-            <!-- Background close trigger -->
+
+             <!-- Background close trigger -->
             <div class="lb-close-area" onclick="closeLightbox()"></div>
         </div>
 
