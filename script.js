@@ -113,12 +113,12 @@ const SKILLS_DATA = [
 
 // Gallery Images
 const GALLERY_IMAGES = [
-    "assets/gallery/pic (3).jpg", "assets/gallery/pic (9).JPG", "assets/gallery/pic (2).JPG", 
-    "assets/gallery/pic (4).JPG", "assets/gallery/pic (5).JPG", "assets/gallery/pic (6).JPG", 
-    "assets/gallery/pic (7).JPG", "assets/gallery/pic (8).JPG", "assets/gallery/pic (14).JPG", 
-    "assets/gallery/pic (16).JPG","assets/gallery/pic (15).JPG", "assets/gallery/pic (17).JPG", 
-    "assets/gallery/pic (18).JPG", "assets/gallery/pic (13).JPG", "assets/gallery/pic (19).JPG", 
-    "assets/gallery/pic (23).JPG", "assets/gallery/pic (10).JPG"
+    "assets/gallery/pic (3).jpg", "assets/gallery/pic (9).webp", "assets/gallery/pic (2).webp", 
+    "assets/gallery/pic (4).webp", "assets/gallery/pic (5).webp", "assets/gallery/pic (6).webp", 
+    "assets/gallery/pic (7).webp", "assets/gallery/pic (8).webp", "assets/gallery/pic (14).webp", 
+    "assets/gallery/pic (16).webp","assets/gallery/pic (15).webp", "assets/gallery/pic (17).webp", 
+    "assets/gallery/pic (18).webp", "assets/gallery/pic (13).webp", "webpassets/gallery/pic (19).webp", 
+    "assets/gallery/pic (23).webp", "assets/gallery/pic (10).webp"
 ];
 
 /* --------------------------------------------------------------------------
@@ -815,7 +815,8 @@ function initGallery() {
     GALLERY_IMAGES.forEach((src, i) => {
         const card = document.createElement('div');
         card.classList.add('gallery-card');
-        card.innerHTML = `<div class="blur-bg" style="background-image:url('${src}')"></div><img src="${src}" class="main-img">`;
+        // Removed the blur-bg completely, keeping only the main image.
+        card.innerHTML = `<img src="${src}" class="main-img" alt="Gallery Image">`;
         card.onclick = () => openLightbox(i);
         galleryDeck.appendChild(card);
     });
@@ -835,12 +836,11 @@ function updateGalleryPositions() {
         let x = isGallerySpread ? offset * 260 : 0;
         let op = (isGallerySpread && Math.abs(offset) > 1) ? 0 : (isGallerySpread ? 1 : (Math.abs(offset) > 2 ? 0 : 1));
         let scale = (isGallerySpread && Math.abs(offset) > 1) ? 0.8 : 1;
-        let blur = (isGallerySpread && Math.abs(offset) > 1) ? 20 : 0;
 
         card.style.transform = `translateX(${x}px) rotate(${rot}deg) scale(${scale})`;
-        card.style.opacity = op; card.style.zIndex = 100 - Math.abs(offset);
-        card.style.filter = `blur(${blur}px)`; 
-        card.style.setProperty('--offset', offset); 
+        card.style.opacity = op; 
+        card.style.zIndex = 100 - Math.abs(offset);
+        card.style.setProperty('--offset', offset);
     });
 }
 
@@ -848,9 +848,24 @@ function moveGallery(dir) { if (!isGallerySpread) return; galleryCenterIndex = (
 function spreadGallery(spread) { isGallerySpread = spread; updateGalleryPositions(); galleryNavBtns.forEach(btn => btn.classList.toggle('active-nav', spread)); }
 
 // Lightbox
-function openLightbox(index) { currentLightboxIndex = index; lightboxImg.src = GALLERY_IMAGES[index]; lightbox.classList.add('active'); document.body.style.overflow = 'hidden'; }
-function closeLightbox() { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
-function lbNavigate(dir) { currentLightboxIndex = (currentLightboxIndex + dir + GALLERY_IMAGES.length) % GALLERY_IMAGES.length; lightboxImg.src = GALLERY_IMAGES[currentLightboxIndex]; }
+function openLightbox(index) { 
+    currentLightboxIndex = index; 
+    lightboxImg.src = GALLERY_IMAGES[index]; 
+    lightbox.classList.add('active'); 
+    document.body.style.overflow = 'hidden'; 
+    document.body.classList.add('lightbox-open'); // Tells the CSS to hide the UI
+}
+
+function closeLightbox() { 
+    lightbox.classList.remove('active'); 
+    document.body.style.overflow = ''; 
+    document.body.classList.remove('lightbox-open'); // Brings the UI back
+}
+
+function lbNavigate(dir) { 
+    currentLightboxIndex = (currentLightboxIndex + dir + GALLERY_IMAGES.length) % GALLERY_IMAGES.length; 
+    lightboxImg.src = GALLERY_IMAGES[currentLightboxIndex]; 
+}
 
 window.moveGallery = moveGallery; window.openLightbox = openLightbox; window.closeLightbox = closeLightbox; window.lbNavigate = lbNavigate;
 
