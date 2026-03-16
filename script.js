@@ -117,7 +117,7 @@ const GALLERY_IMAGES = [
     "assets/gallery/pic (4).webp", "assets/gallery/pic (5).webp", "assets/gallery/pic (6).webp", 
     "assets/gallery/pic (7).webp", "assets/gallery/pic (8).webp", "assets/gallery/pic (14).webp", 
     "assets/gallery/pic (16).webp","assets/gallery/pic (15).webp", "assets/gallery/pic (17).webp", 
-    "assets/gallery/pic (18).webp", "assets/gallery/pic (13).webp", "webpassets/gallery/pic (19).webp", 
+    "assets/gallery/pic (18).webp", "assets/gallery/pic (13).webp", "assets/gallery/pic (19).webp", 
     "assets/gallery/pic (23).webp", "assets/gallery/pic (10).webp"
 ];
 
