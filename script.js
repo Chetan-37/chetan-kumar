@@ -1030,20 +1030,20 @@ window.addEventListener("focus", () => {
 });
 
 
-async function submitContactForm(event) {
-    // 1. STOPS THE PAGE REFRESH IMMEDIATELY
-    event.preventDefault(); 
-
+/* --------------------------------------------------------------------------
+   14. CONTACT FORM ENGINE (Bulletproof Submit)
+   -------------------------------------------------------------------------- */
+async function submitContactForm() {
     const form = document.getElementById("contactForm");
     const submitBtn = form.querySelector('.contact-submit-btn');
     
-    // 2. Change button text to show it's working
+    // 1. Change button text to show it's working
     const originalBtnText = submitBtn.innerText;
     submitBtn.innerText = "SENDING...";
     submitBtn.style.opacity = "0.7";
     submitBtn.style.pointerEvents = "none";
 
-    // 3. Gather the data
+    // 2. Gather the data
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -1056,7 +1056,7 @@ async function submitContactForm(event) {
         });
 
         if (response.ok) {
-            // 4. Show a sleek, themed Success Message instead of the form
+            // 3. Show a sleek, themed Success Message instead of the form
             form.innerHTML = `
               <div style="text-align: center; animation: textSlideIn 0.5s ease-out forwards;">
                 <h3 style="color: var(--accent-red); font-family: 'Fira Code', monospace; font-size: 1.8rem; margin: 0 0 15px 0;">MESSAGE SENT_</h3>
@@ -1082,7 +1082,7 @@ async function submitContactForm(event) {
 }
 
 /* --------------------------------------------------------------------------
-   14. INITIALIZATION
+   15. INITIALIZATION
    -------------------------------------------------------------------------- */
 
 function init() {
