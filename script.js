@@ -1029,6 +1029,58 @@ window.addEventListener("focus", () => {
     document.title = originalTitle;
 });
 
+
+async function submitContactForm(event) {
+    // 1. STOPS THE PAGE REFRESH IMMEDIATELY
+    event.preventDefault(); 
+
+    const form = document.getElementById("contactForm");
+    const submitBtn = form.querySelector('.contact-submit-btn');
+    
+    // 2. Change button text to show it's working
+    const originalBtnText = submitBtn.innerText;
+    submitBtn.innerText = "SENDING...";
+    submitBtn.style.opacity = "0.7";
+    submitBtn.style.pointerEvents = "none";
+
+    // 3. Gather the data
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+        const response = await fetch("https://submit-form.com/OAIhpm570", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: json,
+        });
+
+        if (response.ok) {
+            // 4. Show a sleek, themed Success Message instead of the form
+            form.innerHTML = `
+              <div style="text-align: center; animation: textSlideIn 0.5s ease-out forwards;">
+                <h3 style="color: var(--accent-red); font-family: 'Fira Code', monospace; font-size: 1.8rem; margin: 0 0 15px 0;">MESSAGE SENT_</h3>
+                <p style="color: #ccc; font-family: 'Montserrat', sans-serif; font-size: 1rem; line-height: 1.6;">
+                  Target locked. I will review your transmission and reply shortly.
+                </p>
+              </div>
+            `;
+        } else {
+            // Revert button if something goes wrong
+            alert("Oops! The server rejected the transmission. Please try again.");
+            submitBtn.innerText = originalBtnText;
+            submitBtn.style.opacity = "1";
+            submitBtn.style.pointerEvents = "auto";
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Unable to establish a connection right now. Please try again later!");
+        submitBtn.innerText = originalBtnText;
+        submitBtn.style.opacity = "1";
+        submitBtn.style.pointerEvents = "auto";
+    }
+}
+
 /* --------------------------------------------------------------------------
    14. INITIALIZATION
    -------------------------------------------------------------------------- */
