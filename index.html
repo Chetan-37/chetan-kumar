@@ -417,7 +417,7 @@
                     <div class="contact-card contact-side contact-right">
                         <div class="contact-inner-content">
                             <!-- Powered by Formspark -->
-                            <form id="contactForm" class="contact-form" onsubmit="submitContactForm(event)">
+                            <form id="contactForm" class="contact-form" onsubmit="event.preventDefault(); submitContactForm(); return false;">
                                 
                                 <!-- Animated Input: Email -->
                                 <div class="wave-group">
